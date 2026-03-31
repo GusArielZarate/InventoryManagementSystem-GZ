@@ -1,0 +1,29 @@
+{{template "header" .}}
+<h2>Gestión de Stock</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Stock Actual</th>
+            <th>Actualizar Cantidad</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{range .}}
+        <tr>
+            <td>{{.ProductName}}</td>
+            <td>{{.Quantity}}</td>
+            <td>
+                <form action="/inventory/update" method="POST" style="display:flex; gap:10px;">
+                    <input type="hidden" name="product_id" value="{{.ProductID}}">
+
+                    <input type="number" name="quantity" value="{{.Quantity}}" min="0" style="width:80px;" required>
+
+                    <button type="submit" class="btn">Actualizar</button>
+                </form>
+            </td>
+        </tr>
+        {{end}}
+    </tbody>
+</table>
+{{template "footer" .}}

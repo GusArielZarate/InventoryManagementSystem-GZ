@@ -1,0 +1,21 @@
+{{template "header" .}}
+<div class="container">
+    <h2>Editar Proveedor: {{.Name}}</h2>
+    <form action="/providers/update" method="POST" style="border: 1px solid #ccc; padding: 20px;">
+        <input type="hidden" name="id" value="{{.ID}}">
+
+        <div style="margin-bottom:15px;">
+            <label>Nombre:</label><br>
+            <input type="text" name="name" value="{{.Name}}" required style="width:100%; padding:5px;">
+        </div>
+
+        <div style="margin-bottom:15px;">
+            <label>Teléfono:</label><br>
+            <input type="text" name="phone" value="{{.Phone}}" required style="width:100%; padding:5px;">
+        </div>
+
+        <button type="submit" class="btn">Actualizar Proveedor</button>
+        <a href="/providers" style="margin-left:10px;">Cancelar</a>
+    </form>
+</div>
+{{template "footer" .}}

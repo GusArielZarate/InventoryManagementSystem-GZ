@@ -1,0 +1,41 @@
+{{template "header" .}}
+
+<div style="margin-bottom: 20px; border: 1px solid #ccc; padding: 15px; background: #f9f9f9;">
+    <h3>Registrar Proveedor</h3>
+    <form action="/providers/create" method="POST">
+        <label>Nombre:</label>
+        <input type="text" name="name" required>
+        <label>Teléfono:</label>
+        <input type="text" name="phone" required>
+        <button type="submit" class="btn">Guardar</button>
+    </form>
+</div>
+
+<h2>Listado de Proveedores</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Teléfono</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{range .}}
+        <tr>
+            <td>{{.ID}}</td>
+            <td>{{.Name}}</td>
+            <td>{{.Phone}}</td>
+            <td style="display:flex; gap:10px;">
+                <a href="/providers/edit?id={{.ID}}" class="btn" style="background-color:#007bff;">Editar</a>
+                <form action="/providers/delete" method="POST" onsubmit="return confirm('¿Eliminar?');">
+                    <input type="hidden" name="id" value="{{.ID}}">
+                    <button type="submit" class="btn" style="background-color:#dc3545;">Eliminar</button>
+                </form>
+            </td>
+        </tr>
+        {{end}}
+    </tbody>
+</table>
+{{template "footer" .}}

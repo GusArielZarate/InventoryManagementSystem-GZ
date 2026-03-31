@@ -1,0 +1,22 @@
+{{template "header" .}}
+<div class="container">
+    <h2>Editar Producto: {{.Name}}</h2>
+    <form action="/products/update" method="POST" style="border: 1px solid #ccc; padding: 20px;">
+        <input type="hidden" name="id" value="{{.ID}}">
+
+        <div style="margin-bottom:15px;">
+            <label>Nombre:</label><br>
+            <input type="text" name="name" value="{{.Name}}" required style="width:100%; padding:5px;">
+        </div>
+
+        <div style="margin-bottom:15px;">
+            <label>Precio:</label><br>
+            <input type="number" name="price" value="{{.Price}}" step="0.01" min="0" required
+                style="width:100%; padding:5px;">
+        </div>
+
+        <button type="submit" class="btn">Actualizar Producto</button>
+        <a href="/products" style="margin-left:10px;">Cancelar</a>
+    </form>
+</div>
+{{template "footer" .}}

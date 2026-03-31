@@ -1,0 +1,30 @@
+{{define "header"}}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inventario Restaurante</title>
+    <style>
+        body { font-family: sans-serif; margin: 0; padding: 20px; }
+        nav { background: #333; padding: 1em; color: white; margin-bottom: 20px;}
+        nav a { color: white; text-decoration: none; margin-right: 15px; font-weight: bold;}
+        nav a:hover { text-decoration: underline; color: #f0a500; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f4f4f4; }
+        .container { max-width: 900px; margin: auto; }
+        h1, h2 { color: #333; }
+        .btn { background: #28a745; color: white; padding: 5px 10px; text-decoration: none; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/">Inicio</a>
+            <a href="/products">Productos</a>
+            <a href="/inventory">Inventario</a>
+            <a href="/providers">Proveedores</a> 
+        </div>
+    </nav>
+    <div class="container">
+{{end}}
